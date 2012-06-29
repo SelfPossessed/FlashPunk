@@ -106,12 +106,12 @@
 			var t:Number = getTimer();
 			if (!_frameLast) _frameLast = t;
 			
-			// render loop
-			FP.screen.swap();
-			Draw.resetTarget();
-			FP.screen.refresh();
+			// render loop - changed to not draw here - will be done in world render function
+			//FP.screen.swap();
+			//Draw.resetTarget();
+			//FP.screen.refresh();
 			if (FP._world.visible) FP._world.render();
-			FP.screen.redraw();
+			//FP.screen.redraw();
 			
 			// more timing stuff
 			t = getTimer();

@@ -2,6 +2,7 @@
 {
 	import flash.geom.Point;
 	import flash.utils.Dictionary;
+	import net.flashpunk.utils.Draw;
 
 	/**
 	 * Updated by Engine, main game container that holds all currently active Entities.
@@ -71,6 +72,11 @@
 		 */
 		public function render():void 
 		{
+			// render code moved from engine.as
+			FP.screen.swap();
+			Draw.resetTarget();
+			FP.screen.refresh();
+			
 			// render the entities in order of depth
 			var e:Entity,
 				i:int = _layerList.length;
@@ -83,6 +89,9 @@
 					e = e._renderPrev;
 				}
 			}
+			
+			// render code moved from engine.as
+			FP.screen.redraw();
 		}
 		
 		/**
@@ -994,7 +1003,7 @@
 		}
 		
 		/** @private Adds Entity to the update list. */
-		private function addUpdate(e:Entity):void
+		protected function addUpdate(e:Entity):void // changed to protected
 		{
 			// add to update list
 			if (_updateFirst)
@@ -1011,7 +1020,7 @@
 		}
 		
 		/** @private Removes Entity from the update list. */
-		private function removeUpdate(e:Entity):void
+		protected function removeUpdate(e:Entity):void // changed to protected
 		{
 			// remove from the update list
 			if (_updateFirst == e) _updateFirst = e._updateNext;
@@ -1167,24 +1176,24 @@
 		}
 		
 		// Adding and removal.
-		/** @private */	private var _add:Vector.<Entity> = new Vector.<Entity>;
-		/** @private */	private var _remove:Vector.<Entity> = new Vector.<Entity>;
-		/** @private */	private var _recycle:Vector.<Entity> = new Vector.<Entity>;
+		/** @private */	protected var _add:Vector.<Entity> = new Vector.<Entity>;			// changed to protected
+		/** @private */	protected var _remove:Vector.<Entity> = new Vector.<Entity>;		// changed to protected
+		/** @private */	protected var _recycle:Vector.<Entity> = new Vector.<Entity>;		// changed to protected
 		
 		// Update information.
-		/** @private */	private var _updateFirst:Entity;
-		/** @private */	private var _count:uint;
+		/** @private */	protected var _updateFirst:Entity;									// changed to protected
+		/** @private */	protected var _count:uint;											// changed to protected
 		
 		// Render information.
 		/** @private */	private var _renderFirst:Array = [];
 		/** @private */	private var _renderLast:Array = [];
-		/** @private */	private var _layerList:Array = [];
+		/** @private */	protected var _layerList:Array = [];								// changed to protected
 		/** @private */	private var _layerCount:Array = [];
-		/** @private */	private var _layerSort:Boolean;
-		/** @private */	private var _classCount:Dictionary = new Dictionary;
+		/** @private */	protected var _layerSort:Boolean;									// changed to protected
+		/** @private */	protected var _classCount:Dictionary = new Dictionary;				// changed to protected
 		/** @private */	internal var _typeFirst:Object = { };
 		/** @private */	private var _typeCount:Object = { };
-		/** @private */	private static var _recycled:Dictionary = new Dictionary;
+		/** @private */	protected static var _recycled:Dictionary = new Dictionary;			// changed to protected
 		/** @private */	internal var _entityNames:Dictionary = new Dictionary;
 	}
 }
