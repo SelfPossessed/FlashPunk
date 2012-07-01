@@ -27,11 +27,11 @@ HOW DO I USE THIS?
 
 ### PlayWorld
 
-###### Description
+###### > Description
 
 * The world you will be using as the main World
 
-###### Subclass and Constructor
+###### > Subclass and Constructor
 
 * Subclass this and pass the appropriate values into the constructor.
 * isP1:Boolean - Determines which player you are.
@@ -39,12 +39,12 @@ HOW DO I USE THIS?
 * frameMinSend:uint - How many frames before MultiPunk sends a blank message out. Lower number increases bandwidth usage but is more responsive.
 * conn:GameConnection - Networking library to be used. Pass in a PlayerIOGameConnection.
 
-###### createGameWorld()
+###### > createGameWorld()
 
 * Override this function.
 * Pass in a new instance of your GameWorld subclass.
 
-###### updateInputs()
+###### > updateInputs()
 
 * Override this function.
 * Check for player inputs here.
@@ -59,15 +59,15 @@ HOW DO I USE THIS?
 
 ### GameWorld
 
-###### Description
+###### > Description
 
 * A subworld controlled by PlayWorld
 
-###### Subclass and Constructor
+###### > Subclass and Constructor
 
 * Subclass this and pass in the framerate to the constructor.
 
-###### executeCommand(c:Command)
+###### > executeCommand(c:Command)
 
 * Override this function
 * Perform actions based on the commands here
