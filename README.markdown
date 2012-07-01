@@ -20,14 +20,14 @@ MultiPunk is a multiplayer AS3 library built on FlashPunk for the client and Pla
 HOW DO I USE THIS?
 ==================
 
-### EXAMPLE CODE
+### Example Code
 
 * See https://github.com/SelfPossessed/Simple-Multiplayer-Shooter
 * Provides a basic working setup - just use that as a base to get started.
 
 ### PlayWorld
 
-###### About
+###### Description
 
 * The world you will be using as the main World
 
@@ -59,7 +59,7 @@ HOW DO I USE THIS?
 
 ### GameWorld
 
-######About
+###### Description
 
 * A subworld controlled by PlayWorld
 
@@ -82,7 +82,7 @@ HOW DO I USE THIS?
 STUFF THAT NEEDS TO BE DONE!
 ============================
 
-###### Client Side
+###### Client
 
 * Rollback sounds - sound playback needs to be handled differently for the netcode
 * Rollback camera
