@@ -82,6 +82,8 @@ HOW DO I USE THIS?
 STUFF THAT NEEDS TO BE DONE!
 ============================
 
+###### Client Side
+
 * Rollback sounds - sound playback needs to be handled differently for the netcode
 * Rollback camera
 * Rollback Tilemap and other objects
@@ -89,6 +91,8 @@ STUFF THAT NEEDS TO BE DONE!
 * Floating point precision checks - there may be floating point desyncs right now
 * Replay system
 * Observer system
+
+###### Networking
 
 * 3+ Players - it's only 2 player right now
 * Disconnect detection
