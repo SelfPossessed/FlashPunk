@@ -112,7 +112,8 @@ package net.flashpunk {
 					if (e._world !== this)
 						continue;
 					
-					e.removed();
+					if(!_isRollingBack)
+						e.removed();
 					e._world = null;
 					
 					removeUpdate(e);
@@ -128,7 +129,6 @@ package net.flashpunk {
 			if (_add.length) {
 				
 				//helper
-				var callAdded:Boolean = false;
 				var r:RollbackableEntity = null;
 				
 				for each (e in _add) {
@@ -151,10 +151,6 @@ package net.flashpunk {
 					//set world
 					e._world = this;
 					
-					//set callAdded if is not a unrecycle
-					r = e as RollbackableEntity;
-					callAdded = (r._typePriority == 0 || r._updatePriority == 0);
-					
 					//add to update and render
 					addUpdate(e);
 					addRender(e);
@@ -162,7 +158,7 @@ package net.flashpunk {
 					if (e._name) registerName(e);
 					
 					//call added
-					if(callAdded)
+					if(!_isRollingBack)
 						e.added();
 				}
 				//set length
@@ -455,8 +451,9 @@ package net.flashpunk {
 			}
 			
 			//update lists
+			_isRollingBack = true;
 			updateLists();
-			w.updateLists();
+			_isRollingBack = false;
 			
 			//reset frame
 			_frame = w._frame;
@@ -546,6 +543,7 @@ package net.flashpunk {
 		/** @private */ private var _frame:uint = 0;
 		
 		// Rollback information
+		/** @private */ private var _isRollingBack:Boolean = false;
 		 /** @private */ private var _firstEntity:RollbackableEntity;
 		 /** @private */ private var _lastEntity:RollbackableEntity;
 		 /** @private */ private var _syncPoint:RollbackableEntity;
