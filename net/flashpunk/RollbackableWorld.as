@@ -18,6 +18,13 @@ package net.flashpunk {
 		}
 		
 		/**
+		 * Getter
+		 */
+		public function get frame():uint {
+			return _frame;
+		}
+		
+		/**
 		 * Modified to set isTrueEntity
 		 * @param	e
 		 * @return
@@ -77,6 +84,14 @@ package net.flashpunk {
 			
 			if (addToWorld) return add(e);
 				return e;
+		}
+		
+		override public function update():void {
+			//super
+			super.update();
+			
+			//increment
+			_frame++;
 		}
 		
 		/**
@@ -442,6 +457,9 @@ package net.flashpunk {
 			//update lists
 			updateLists();
 			w.updateLists();
+			
+			//reset frame
+			_frame = w._frame;
 		}
 		
 		/**
@@ -524,7 +542,10 @@ package net.flashpunk {
 			return result;
 		}
 		
-		// Rollback information.
+		//Frame information
+		/** @private */ private var _frame:uint = 0;
+		
+		// Rollback information
 		 /** @private */ private var _firstEntity:RollbackableEntity;
 		 /** @private */ private var _lastEntity:RollbackableEntity;
 		 /** @private */ private var _syncPoint:RollbackableEntity;
