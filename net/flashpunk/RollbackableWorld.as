@@ -13,8 +13,13 @@ package net.flashpunk {
 		 */
 		public var isTrueWorld:Boolean = false;
 		
-		public function RollbackableWorld() {
+		public function RollbackableWorld(frameRate:uint) {
+			//super
+			super();
 			
+			//save frame rate
+			_frameRate = frameRate;
+			_frameElapsed = frameRate * .001;
 		}
 		
 		/**
@@ -22,6 +27,20 @@ package net.flashpunk {
 		 */
 		public function get frame():uint {
 			return _frame;
+		}
+		
+		/**
+		 * Getter
+		 */
+		public function get frameRate():uint {
+			return _frameRate;
+		}
+		
+		/**
+		 * Getter
+		 */
+		public function get frameElapsed():Number {
+			return _frameElapsed;
 		}
 		
 		/**
@@ -541,6 +560,8 @@ package net.flashpunk {
 		
 		//Frame information
 		/** @private */ private var _frame:uint = 0;
+		/** @private */ private var _frameRate:uint = 0;
+		/** @private */ private var _frameElapsed:Number = 0;
 		
 		// Rollback information
 		/** @private */ private var _isRollingBack:Boolean = false;

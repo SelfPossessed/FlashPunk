@@ -5,12 +5,6 @@ package net.flashpunk {
 	import net.flashpunk.RollbackableSfx;
 	import net.flashpunk.RollbackableWorld;
 	
-	//ugly, shouldn't be tied to gameworld
-	//would mean that framerate would have to be moved to rollbackableworld though
-	//internal wouldn't work anymore for the framerate variable and protected exposes it to subclasses
-	//probably have to namespace it
-	import net.flashpunk.rollback.GameWorld;
-	
 	public class RollbackableEntity extends Entity implements Rollbackable {
 		/**
 		 * Boolean indicating if entity exists in true or perceived world
@@ -194,7 +188,7 @@ package net.flashpunk {
 			super.render();
 			
 			//deciare variables
-			var w:GameWorld = world as GameWorld; //ugly hack
+			var w:RollbackableWorld = world as RollbackableWorld;
 			
 			//sounds
 			var current:RollbackableSfx = _firstSfx;
