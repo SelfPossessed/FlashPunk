@@ -84,7 +84,7 @@ STUFF THAT NEEDS TO BE DONE!
 
 ###### Client
 
-* Rollback sounds - sound playback needs to be handled differently for the netcode
+* Rollback sounds - need to do loop/resume/stop
 * Rollback camera
 * Rollback Tilemap and other objects
 * Box2D support
