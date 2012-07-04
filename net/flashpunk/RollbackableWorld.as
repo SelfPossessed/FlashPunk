@@ -1,11 +1,14 @@
 package net.flashpunk {
+	import flash.utils.Dictionary;
+	
 	import net.flashpunk.World;
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.Rollbackable;
 	import net.flashpunk.RollbackableEntity;
+	import net.flashpunk.namespace.RollbackNamespace;
 	
-	import flash.utils.Dictionary;
+	use namespace RollbackNamespace;
 	
 	public class RollbackableWorld extends World implements Rollbackable {
 		/**
@@ -25,7 +28,7 @@ package net.flashpunk {
 		/**
 		 * Getter
 		 */
-		public function get frame():uint {
+		public function get frame():int {
 			return _frame;
 		}
 		
@@ -106,8 +109,10 @@ package net.flashpunk {
 		}
 		
 		override public function update():void {
-			//super
-			super.update();
+			if(_frame >= 0) {
+				//super
+				super.update();
+			}
 			
 			//increment
 			_frame++;
@@ -559,7 +564,7 @@ package net.flashpunk {
 		}
 		
 		//Frame information
-		/** @private */ private var _frame:uint = 0;
+		/** @private */ RollbackNamespace var _frame:int = 0;
 		/** @private */ private var _frameRate:uint = 0;
 		/** @private */ private var _frameElapsed:Number = 0;
 		
