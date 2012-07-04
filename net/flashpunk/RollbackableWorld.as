@@ -14,7 +14,7 @@ package net.flashpunk {
 		/**
 		 * Boolean indicating if world is true or perceived world
 		 */
-		public var isTrueWorld:Boolean = false;
+		RollbackNamespace var _isTrueWorld:Boolean = false;
 		
 		public function RollbackableWorld(frameRate:uint) {
 			//super
@@ -47,6 +47,13 @@ package net.flashpunk {
 		}
 		
 		/**
+		 * Getter
+		 */
+		public function get isTrueWorld():Boolean  {
+			return _isTrueWorld;
+		}
+		
+		/**
 		 * Modified to set isTrueEntity
 		 * @param	e
 		 * @return
@@ -56,7 +63,7 @@ package net.flashpunk {
 			var r:RollbackableEntity = e as RollbackableEntity;
 			
 			//set is true
-			r.isTrueEntity = isTrueWorld;
+			r._isTrueEntity = _isTrueWorld;
 			
 			//super
 			return super.add(r);
@@ -76,7 +83,7 @@ package net.flashpunk {
 				e._recycleNext = null;
 			}
 			else e = new classType;
-			e.isTrueEntity = isTrueWorld;
+			e._isTrueEntity = _isTrueWorld;
 			
 			// return
 			if (addToWorld) return add(e);

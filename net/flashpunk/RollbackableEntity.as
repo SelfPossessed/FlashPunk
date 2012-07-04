@@ -4,12 +4,15 @@ package net.flashpunk {
 	import net.flashpunk.Entity;
 	import net.flashpunk.RollbackableSfx;
 	import net.flashpunk.RollbackableWorld;
+	import net.flashpunk.namespace.RollbackNamespace;
+	
+	use namespace RollbackNamespace;
 	
 	public class RollbackableEntity extends Entity implements Rollbackable {
 		/**
 		 * Boolean indicating if entity exists in true or perceived world
 		 */
-		public var isTrueEntity:Boolean=false;
+		RollbackNamespace var _isTrueEntity:Boolean=false;
 		
 		/**
 		 * Collision did not occur
@@ -38,6 +41,10 @@ package net.flashpunk {
 		
 		public function RollbackableEntity(x:Number = 0, y:Number = 0) {
 			super(x, y);
+		}
+		
+		public function get isTrueEntity():Boolean {
+			return _isTrueEntity;
 		}
 		
 		/**

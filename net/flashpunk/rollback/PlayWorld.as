@@ -14,9 +14,6 @@ package net.flashpunk.rollback {
 	
 	use namespace RollbackNamespace;
 	
-	//temp debug
-	import general.Utils;
-	
 	public class PlayWorld extends World {
 		//worlds
 		private var perceivedWorld:GameWorld;
@@ -57,7 +54,7 @@ package net.flashpunk.rollback {
 			
 			//modify worlds
 			perceivedWorld._frame -= this.frameDelay; //cause game to start late
-			trueWorld.isTrueWorld = true; //helper
+			trueWorld._isTrueWorld = true; //helper
 			
 			//game worlds
 			trueWorld.begin();
