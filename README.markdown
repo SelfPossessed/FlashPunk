@@ -17,6 +17,19 @@ MultiPunk is a multiplayer AS3 library built on FlashPunk for the client and Pla
 * Cheating - Maphacks (if your game has fog of war), command macros, and unfairly reducing the preset input delay cannot be prevented.
 * New - There will be bugs and many missing features. This is very bare bones.
 
+HOW DOES THIS WORK?
+===================
+
+Two simulations of the game are running simultaneously.
+* Perceived World - Inaccurate state information, but the information is up to date
+* True World - Accurate state information, but the information is old
+
+The Perceived World is what the player sees. Any command that the player inputs is immediately reflected on the Perceived World so he feels as if there is no delay. It is constantly updated.
+
+The True World silently runs in the background. It is never rendered. When you receive a command from the other player, the True World is updated to the time of the command, then pauses. The Perceived World is then rewinded by rolling back to the True World (state information is now the same for both Worlds). After that, the Perceived World is fast forwarded to back the current time.
+
+In essense, the True World contains a past state that is guaranteed to be accurate. It is used to efficiently allow the Perceived World to rewind and fix any errors caused by latency.
+
 HOW DO I USE THIS?
 ==================
 
