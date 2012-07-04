@@ -100,7 +100,7 @@
 		}
 		
 		/** @private Event handler for sound completion. */
-		private function onComplete(e:Event = null):void
+		internal function onComplete(e:Event = null):void // changed to internal
 		{
 			if (_looping) loop(_vol, _pan);
 			else stop();
