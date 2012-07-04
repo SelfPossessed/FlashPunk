@@ -78,6 +78,7 @@ HOW DO I USE THIS?
 * All entities must override rollback(e:RollbackableEntity).
 * You must roll back relevant primitive values like integers and booleans. Failing to rollback a needed value will cause strange behaviors.
 * Do not have one Entity referencing another one directly. You cannot rollback references.
+* Sounds must use RollbackableSfx. Use the RollbackableEntity's addSound function in the constructor. You do not need to manually roll the Sfx back.
 
 STUFF THAT NEEDS TO BE DONE!
 ============================
