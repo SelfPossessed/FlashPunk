@@ -93,6 +93,46 @@ HOW DO I USE THIS?
 * Do not have one Entity referencing another one directly. You cannot rollback references.
 * Sounds must use RollbackableSfx. Use the RollbackableEntity's addSound function in the constructor. You do not need to manually roll the Sfx back.
 
+PLAYERIO SERVER PROTOCOL
+========================
+
+Note that this does not include the matchmaking system. This is the protocol used for actual gameplay. A default lobby that matches the first two players who join is provided in the Simple Shooter example. You should implement your own system on top of this protocol.
+
+### Server to Client
+
+* Type: "S"
+* Description: Server sends a "S" message to clients to begin the start time syncing process. Note that the Simple Shooter example has the S message sent once both players have joined the "Shooter" room. In your implementation, the clients should send a message (for example, a host player picks another player to play against and sends the player id to the server) to the server that then causes the server to send this "S" message to the appropriate clients.
+
+### Client to Server
+
+* Type: "S"
+* Description: Clients sends a "S" message to the server every 250 milliseconds. The server uses 10 of these for each client to help synchronize the start time.
+
+### Server to Client
+
+* Type: "F"
+* Parameter 1: Boolean
+* Parameter 2: Unsigned Integer
+* Description: Server sends a "F" message to the clients to tell them to begin fighting. Parameter 1 tells the clients which player they are (true for player 1, false for player 2). Parameter 2 is a time in milliseconds used to calculate the game starting time. To get the starting time, the client adds Parameter 2 to the time that the client sent the first "S" message to the server.
+
+### Client to Server
+
+* Type: "C"
+* Parameter 1: Unsigned Integer
+* Parameter 2: Integer
+* Parameter 3: Integer
+* Parameter 4+: Integers
+* Description: Client packages up a "C" (command) message. Parameter 1 is the frame of the command. Parameter 2 is the X position of the mouse. Parameter 3 is the Y position of the mouse. Parameters 4 and on each represent a custom command.
+
+### Server to Client
+
+* Type: "C"
+* Parameter 1: Unsigned Integer
+* Parameter 2: Integer
+* Parameter 3: Integer
+* Parameter 4+: Integers
+* Description: Server takes a received "C" message and forwards (bounces) it to the other player. It does no processing on the command.
+
 STUFF THAT NEEDS TO BE DONE!
 ============================
 
