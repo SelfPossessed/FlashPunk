@@ -12,9 +12,9 @@ MultiPunk is a multiplayer AS3 library built on FlashPunk for the client and Pla
 ### CONS
 
 * Computer Intensive - Uses double the memory and extra processing time for the rollback.
-* Small Player Count - Not ideal for MMOs.
+* Small Player Count - Not ideal for MMOs. On that note, not designed for players to join in on an already started game.
 * No Smoothing - If someone lags badly enough, they will appear to teleport around the screen.
-* Cheating - Maphacks (if your game has fog of war), command macros, and unfairly reducing the preset input delay cannot be prevented.
+* Cheating - Maphacks (if your game has fog of war), command macros, and latency manipulations cannot be prevented.
 * New - There will be bugs and many missing features. This is very bare bones.
 
 HOW DOES THIS WORK?
