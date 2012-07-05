@@ -101,7 +101,7 @@ Note that this does not include the matchmaking system. This is the protocol use
 ### Server to Client
 
 * Type: "S"
-* Server sends a "S" message to clients to begin the start time syncing process. Note that the Simple Shooter example has the S message sent once both players have joined the "Shooter" room. In your implementation, the clients should send a message to the server that then causes the server to send this "S" message to the appropriate clients. For example, a host player picks another player to play against and sends the player id to the server. The server then sends the "S" message to the host and the selected player.
+* Server sends a "S" message to clients to begin the start time syncing process. Upon receiving this, the Client sets a subclass of PlayWorld as the FP.world. Note that the Simple Shooter example has the S message sent once both players have joined the "Shooter" room. In your implementation, the clients should send a message to the server that then causes the server to send this "S" message to the appropriate clients. For example, a host player picks another player to play against and sends the player id to the server. The server then sends the "S" message to the host and the selected player.
 
 ### Client to Server
 
