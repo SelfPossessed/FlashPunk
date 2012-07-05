@@ -122,7 +122,7 @@ Note that this does not include the matchmaking system. This is the protocol use
 * Parameter 2: Integer
 * Parameter 3: Integer
 * Parameter 4+: Integers
-* Client packages up a "C" (command) message. Parameter 1 is the frame of the command. Parameter 2 is the X position of the mouse. Parameter 3 is the Y position of the mouse. Parameters 4 and on each represent a custom command.
+* Client packages up a "C" (command) message. Parameter 1 is the number of frames between the last command sent by this player and this command. Parameter 2 is the X position of the mouse. Parameter 3 is the Y position of the mouse. Parameters 4 and on each represent a custom command.
 
 ### Server to Client
 
