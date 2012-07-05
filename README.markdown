@@ -106,7 +106,7 @@ Note that this does not include the matchmaking system. This is the protocol use
 ### Client to Server
 
 * Type: "S"
-* Description: Clients sends a "S" message to the server every 250 milliseconds. The server uses 10 of these for each client to help synchronize the start time.
+* Clients sends a "S" message to the server every 250 milliseconds. The server uses 10 of these for each client to help synchronize the start time.
 
 ### Server to Client
 
