@@ -157,6 +157,7 @@ STUFF THAT NEEDS TO BE DONE!
 * Chat
 * Support for other networking libraries - like Gamooga or Cirrus
 * UDP Support
+* Variable input delay option - right now it's user preset only, no recommended
 * Move time sync code from server to clients
 * Continuous clock synchronization - need to fix clock drift for longer games
 
