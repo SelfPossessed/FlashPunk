@@ -138,6 +138,7 @@ STUFF THAT NEEDS TO BE DONE!
 
 ###### Client
 
+* Finish/Destroy game and memory management
 * Rollback sounds - need to do loop/resume/stop
 * Rollback camera
 * Rollback Tilemap and other objects
@@ -156,6 +157,7 @@ STUFF THAT NEEDS TO BE DONE!
 * Chat
 * Support for other networking libraries - like Gamooga or Cirrus
 * UDP Support
+* Move time sync code from server to clients
 * Continuous clock synchronization - need to fix clock drift for longer games
 
 FLASHPUNK NOTES
