@@ -156,6 +156,7 @@ STUFF THAT NEEDS TO BE DONE!
 * Chat
 * Support for other networking libraries - like Gamooga or Cirrus
 * UDP Support
+* Continuous clock synchronization - need to fix clock drift for longer games
 
 FLASHPUNK NOTES
 ===============
